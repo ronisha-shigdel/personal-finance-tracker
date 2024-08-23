@@ -1,50 +1,50 @@
-# React + TypeScript + Vite
+Personal Finance Tracker
+The Personal Finance Tracker is a React-based application designed to help users manage their income, expenses, and savings goals. The application features a dashboard that provides an overview of financial metrics, including current savings versus savings goals, income distribution, and transaction history.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+Dashboard: Provides a quick overview of total income, expenses, current savings, and savings goals.
+Income Manager: Allows users to track different sources of income.
+Expense Manager: Enables users to manage and categorize their expenses.
+Savings Goals: Users can set, track, and visualize their savings goals.
+Transaction History: View and manage past transactions with easy filtering and categorization.
+Goal Tracker: A visual representation of your progress towards savings goals.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Prerequisites
+Node.js
+npm or Yarn
 
-## Expanding the ESLint configuration
+Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository:
+   git clone https://github.com/yourusername/personal-finance-tracker.git
+   cd personal-finance-tracker
 
-- Configure the top-level `parserOptions` property like this:
+2. Install the dependencies:
+   npm install
+   npm install -D tailwindcss postcss autoprefixer
+   npm tailwindcss init -p
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Running the Application
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. Start the development server:
+   npm run dev
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+2. Open your browser and go to:
+   http://localhost:5173
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Technologies Used
+React.js: JavaScript library for building user interfaces.
+React Router: For routing and navigation.
+Chart.js: For visualizing data with charts.
+Tailwind CSS: Utility-first CSS framework for styling.
+React Context API: For state management across components.
+
+
+React Context API
+
+The application uses React Context API to manage global state related to financial data (income, expenses, and savings goals) across multiple components.
+
+Lazy Loading with React.lazy and Suspense
+
+For improved performance, lazy loading is implemented using `React.lazy()` and `Suspense` to dynamically import heavy components like `TransactionHistory`.
