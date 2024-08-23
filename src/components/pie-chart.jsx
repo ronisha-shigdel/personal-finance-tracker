@@ -4,49 +4,41 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const PieChart = ({ data, title }) => {
-  if (!data || data.length === 0) {
-    return <div>No data available for {title}</div>;
-  }
-
+function PieChart({ data, title }) {
   const chartData = {
-    labels: data.map((item) => item.category),
+    labels:
+      data && data.length > 0 ? data.map((item) => item.category) : ["No Data"],
     datasets: [
       {
-        data: data.map((item) => parseFloat(item.amount)),
-        backgroundColor: [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-          "#4BC0C0",
-          "#9966FF",
-        ],
-        hoverBackgroundColor: [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-          "#4BC0C0",
-          "#9966FF",
-        ],
+        data:
+          data && data.length > 0
+            ? data.map((item) => parseFloat(item.amount))
+            : [1],
+        backgroundColor:
+          data && data.length > 0
+            ? ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#9966FF"]
+            : ["#E0E0E0"],
+        hoverBackgroundColor:
+          data && data.length > 0
+            ? ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#9966FF"]
+            : ["#E0E0E0"],
       },
     ],
   };
 
   return (
     <>
-      <div className="w-full max-w-sm p-4 mx-auto lg:w-1/2">
-        <div className="p-3 bg-white rounded-lg shadow">
-          <h3 className="mb-2 text-lg font-semibold text-center">{title}</h3>
-          <div className="relative w-64 h-64 mx-auto">
-            <Pie
-              data={chartData}
-              options={{ responsive: true, maintainAspectRatio: false }}
-            />
-          </div>
+      <div>
+        <h3 className="mb-2 text-lg font-semibold text-center">{title}</h3>
+        <div className="relative mx-auto w-25 h-25">
+          <Pie
+            data={chartData}
+            options={{ responsive: true, maintainAspectRatio: false }}
+          />
         </div>
       </div>
     </>
   );
-};
+}
 
 export default PieChart;

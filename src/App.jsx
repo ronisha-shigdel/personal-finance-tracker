@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import IncomeManager from "./components/income-manager";
 import ExpenseManager from "./components/expense-manager";
 import { FinanceProvider } from "./FinanceContext";
-import SavingsDisplay from "./components/savings-display";
 import Dashboard from "./pages/Dashboard";
 import NavBar from "./components/nav-bar";
+import SavingsGoals from "./components/savings-goals";
 
 function App() {
   return (
@@ -19,12 +19,12 @@ function App() {
               element={
                 <>
                   <Dashboard />
-                  <SavingsDisplay />
                 </>
               }
             />
             <Route path="/income" element={<IncomeManager />} />
             <Route path="/expenses" element={<ExpenseManager />} />
+            <Route path="/savings" element={<SavingsGoals />} />
           </Routes>
         </div>
       </Router>
